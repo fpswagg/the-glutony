@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-void: #080707;
+  --color-crimson: #8b0000;
+  --color-abyss: #6d28d9;
+  --color-bone: #e8e4dc;
+  --color-infernal: #ff6b00;
+  --font-display: var(--font-cinzel);
+  --font-body: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-bone);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-crimson) 60%, transparent);
+  color: var(--color-bone);
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-12px) translateX(6px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-drift {
+  animation: drift 8s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out forwards;
+}
+
+.text-gradient-infernal {
+  background: linear-gradient(
+    135deg,
+    var(--color-crimson) 0%,
+    var(--color-infernal) 50%,
+    var(--color-abyss) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.border-glow {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--color-crimson) 30%, transparent),
+    0 0 40px color-mix(in srgb, var(--color-crimson) 15%, transparent);
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--color-crimson) 50%, transparent),
+    color-mix(in srgb, var(--color-abyss) 50%, transparent),
+    transparent
+  );
+}
